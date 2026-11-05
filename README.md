@@ -1,10 +1,13 @@
 # compare-corpora
 The Democrat and Litbank-fr corpora – part of the Propp project – are two corpora of annotated reference strings. The second partly draws on data from the first. It is this overlap that we shall examine and analyse here. In what ways does fr-Litbank constitute a reuse and adaptation of Democrat?
 
-To run the 0_run_all.sh and 1_compare_entites.py files, you need to create a folder called ‘data’ with the corpora - from the 2 projects :
+The article [... link to coming soon ...]
+
+The 0_run_all.sh and 1_compare_entites.py files run on a folder called ‘data’ which contain the corpora - from the 2 projects :
 - litbank (https://lattice-8094.github.io/propp/)
 - Democrat (https://doi.org/10.82270/democrat/v1.1) 
 
+The result of this step is in the data_result folder. The data folder isn't in this repository ; the other scripts in the src folder use the data of the data_result.
 
 ```
 .
