@@ -381,7 +381,7 @@ def main ():
 	#df_partCorps["sum"] = df_partCorps[colonnes_oeuvres].sum(axis=1)
 
 	df_partCorps.to_csv(
-	    folder_res+"tableau_difference_D-L_partCorps.csv",
+	    folder_res+"tableau_difference_D-L_partie-du-corps.csv",
 	    encoding="utf-8-sig"
 	)
 

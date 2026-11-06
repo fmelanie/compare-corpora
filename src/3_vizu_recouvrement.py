@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*-coding:utf-8 -*-
 '''
-@File    :   3-1_vizu_recouvrement.py
+@File    :   3_vizu_recouvrement.py
 @Time    :   2026/09/26
 @Author  :   Frédérique Mélanie
 @Version :   1.0
@@ -23,7 +23,7 @@ def zscore(series):
 
 def main():
 
-    myCsvFile = "taux_recouvrement_par_oeuvre.csv"
+    myCsvFile = "result/taux_recouvrement_par_oeuvre.csv"
 
     dir_out = "img/"
 
@@ -106,7 +106,7 @@ def main():
     fig.colorbar(im, ax=ax, label="Pourcentage de recouvrement")
     fig.tight_layout()
     fig.savefig(
-        "img/1_heatmap_recouvrement.png",
+        "img/recouvrement_heatmap.png",
         dpi=300,
         bbox_inches="tight"
     )
@@ -159,7 +159,7 @@ def main():
 
     fig.tight_layout()
     fig.savefig(
-        "img/2_nuage_recouvrement.png",
+        "img/recouvrement_nuage.png",
         dpi=300,
         bbox_inches="tight"
     )
@@ -188,7 +188,7 @@ def main():
 
     for _, row in data.iterrows():
         oeuvre = str(row["oeuvre"])
-        weight = "normal" #"bold" if oeuvre in {"fifi1", "fifi2",fifi3} else "normal"
+        weight = "normal"
         ax.annotate(
             oeuvre,
             (
@@ -201,20 +201,9 @@ def main():
             fontweight=weight
         )
 
-    for special in ["fifi1", "fifi2"]:
-        subset = data[data["oeuvre"].astype(str) == special]
-        if not subset.empty:
-            row = subset.iloc[0]
-            ax.scatter(
-                row["recouvrement_data_D_par_data_L (%)"],
-                row["recouvrement_data_L_par_data_D (%)"],
-                s=180,
-                linewidth=2
-            )
-
     fig.tight_layout()
     fig.savefig(
-        "img/3_nuage_recouvrement_taille_vocabulaire.png",
+        "img/recouvrement_nuage_taille-vocabulaire.png",
         dpi=300,
         bbox_inches="tight"
     )
@@ -234,16 +223,10 @@ def main():
             "voc_communs",
         ]
     ].to_csv(
-        "img/4_zscores_recouvrement.csv",
+        "img/recouvrement_zscores.csv",
         index=False,
         encoding="utf-8-sig"
     )
-
-    #print("Graphiques créés dans :", out.resolve())
-    print(" - 1_heatmap_recouvrement.png")
-    print(" - 2_nuage_recouvrement.png")
-    print(" - 3_nuage_recouvrement_taille_vocabulaire.png")
-    print(" - 4_zscores_recouvrement.csv")
 
     # Exemple : Histogramme des z-scores
     plt.figure(figsize=(10, 6))
@@ -255,7 +238,7 @@ def main():
     plt.title("Distribution des z-scores de recouvrement")
     plt.xlabel("z-score")
     plt.ylabel("Fréquence")
-    plt.savefig("img/4_histogramme_zscores.png", dpi=300)
+    plt.savefig("img/recouvrement_histogramme_zscores.png", dpi=300)
     plt.close()
 
 

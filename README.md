@@ -10,6 +10,7 @@ The 0_run_all.sh and 1_compare_entites.py files run on a folder called ‘data�
 The result of this step is in the data_result folder. The data folder isn't in this repository ; the other scripts in the src folder use the data of the data_result.
 
 ```
+
 .
 ├── data_result
 │   ├── data-Democrat.json
