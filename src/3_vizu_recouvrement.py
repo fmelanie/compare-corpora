@@ -119,7 +119,23 @@ def main():
     y = data["recouvrement_data_L_par_data_D (%)"]
 
     # Calcul des couleurs en fonction du z-score
-    colors = np.where(np.abs(data["z_recouvrement_d_D"]) > 1, "red", "blue")
+    # colors = np.where(data["z_recouvrement_d_D"].astype(int) > 0, "red", "blue")
+    #colors = np.where(np.abs(data["z_recouvrement_d_D"]) > 1, "red", "blue")
+    #colors = np.where((np.abs(data["z_recouvrement_d_D"]) > 1) & (np.abs(data["z_recouvrement_d_L"]) > 1), "red", "blue")
+    
+    #z_recouvrement_d_L
+    colors = np.where((np.abs(data["z_recouvrement_d_D"]) > 1) | (np.abs(data["z_recouvrement_d_L"]) > 1), "red", "blue")
+
+    # # Condition 1 : Même signe / même polarité
+    # condition_signe = (data["z_recouvrement_d_D"] * data["z_recouvrement_d_L"]) > 0
+
+    # # Condition 2 : Les deux valeurs absolues dépassent 1
+    # condition_seuil = (np.abs(data["z_recouvrement_d_D"]) > 1) & (np.abs(data["z_recouvrement_d_L"]) > 1)
+
+    # # # Combinaison des deux avec un ET (&)
+    # # colors = np.where(condition_signe  > 0 & (np.abs(data["z_recouvrement_d_D"]) > 1) & (np.abs(data["z_recouvrement_d_L"]) > 1), "red", "blue")
+
+    # colors = np.where( ((data["z_recouvrement_d_D"] * data["z_recouvrement_d_L"]) > 0) & ((np.abs(data["z_recouvrement_d_D"]) > 1) & (np.abs(data["z_recouvrement_d_L"]) > 1)), "red", "blue")
 
     fig, ax = plt.subplots(figsize=(10, 8))
     #ax.scatter(x, y)
