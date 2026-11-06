@@ -168,8 +168,8 @@ def main():
     # Légende pour les couleurs
     from matplotlib.patches import Patch
     legend_elements = [
-        Patch(facecolor="red", label="|z-score| > 1 (atypique)"),
-        Patch(facecolor="blue", label="|z-score| ≤ 1 (typique)")
+        Patch(facecolor="red", label="|z-score| > 1"),
+        Patch(facecolor="blue", label="|z-score| ≤ 1")
     ]
     ax.legend(handles=legend_elements, loc="upper right")
 
